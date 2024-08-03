@@ -24,10 +24,5 @@ jobs:
       - name: Build and inject webhook URL
         run: |
           echo "WEBHOOK_URL=${{ secrets.DISCORD_WEBHOOK_URL }}" > .env
+          npm init
           npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
